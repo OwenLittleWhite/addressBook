@@ -1,0 +1,32 @@
+{
+  "name": "address_book",
+  "version": "1.0.0",
+  "description": "a api project for address book",
+  "scripts": {
+    "test": "test",
+    "build-ts": "tsc",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "build": "npm run build-ts && npm run tslint",
+    "start": "npm run build && npm run server",
+    "server": "nodemon dist/server.js"
+  },
+  "keywords": [
+    "koa",
+    "typescript",
+    "Restful",
+    "mongodb",
+    "mysql",
+    "test"
+  ],
+  "author": "Owen",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.39",
+    "nodemon": "^1.12.1",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.3"
+  }
+}
