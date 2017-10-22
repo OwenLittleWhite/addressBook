@@ -21,7 +21,8 @@
   "author": "Owen",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.3.0"
+    "koa": "^2.3.0",
+    "koa-rest-router": "^1.0.1"
   },
   "devDependencies": {
     "@types/koa": "^2.0.39",
