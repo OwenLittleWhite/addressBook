@@ -3,163 +3,183 @@
 export = koa_rest_router;
 
 declare class koa_rest_router {
-    constructor(options: any);
+  constructor(options: any);
 
-    addResource(resource: any): any;
+  addResource(resource: any): any;
 
-    addResources(...args: any[]): any;
+  addResources(...args: any[]): any;
 
-    createResource(name: any, ctrl: any, opts: any): any;
+  addRoute(method: any, route: any, fns: any, ...args: any[]): any;
 
-    getResource(name: any): any;
+  addRoutes(...args: any[]): any;
 
-    getResources(): any;
+  createResource(name: any, ctrl: any, opts: any): any;
 
-    groupResources(dest: any, src1: any, src2: any): any;
+  createRoute(method: any, route: any, fns: any, ...args: any[]): any;
 
-    resource(name: any, ctrl: any, opts: any, ...args: any[]): any;
+  extend(router: any): any;
+
+  getResource(name: any): any;
+
+  getResources(): any;
+
+  getRoute(name: any): any;
+
+  getRoutes(): any;
+
+  groupResources(dest: any, src1: any, src2: any): any;
+
+  groupRoutes(dest: any, src1: any, src2: any): any;
+
+  legacyMiddleware(): any;
+
+  loadMethods(...args: any[]): any;
+
+  middleware(): any;
+
+  resource(name: any, ctrl: any, opts: any, ...args: any[]): any;
 
 }
 
 declare namespace koa_rest_router {
-    namespace prototype{
-        function addResource(resource: any): any;
 
-        function addResources(...args: any[]): any;
+  function addResource(resource: any): any;
 
-        function addRoute(method: any, route: any, fns: any, ...args: any[]): any;
+  function addResources(...args: any[]): any;
 
-        function addRoutes(...args: any[]): any;
+  function addRoute(method: any, route: any, fns: any, ...args: any[]): any;
 
-        function createResource(name: any, ctrl: any, opts: any): any;
+  function addRoutes(...args: any[]): any;
 
-        function createRoute(method: any, route: any, fns: any, ...args: any[]): any;
+  function createResource(name: any, ctrl: any, opts: any): any;
 
-        function extend(router: any): any;
+  function createRoute(method: any, route: any, fns: any, ...args: any[]): any;
 
-        function getResource(name: any): any;
+  function extend(router: any): any;
 
-        function getResources(): any;
+  function getResource(name: any): any;
 
-        function getRoute(name: any): any;
+  function getResources(): any;
 
-        function getRoutes(): any;
+  function getRoute(name: any): any;
 
-        function groupResources(dest: any, src1: any, src2: any): any;
+  function getRoutes(): any;
 
-        function groupRoutes(dest: any, src1: any, src2: any): any;
+  function groupResources(dest: any, src1: any, src2: any): any;
 
-        function legacyMiddleware(): any;
+  function groupRoutes(dest: any, src1: any, src2: any): any;
 
-        function loadMethods(...args: any[]): any;
+  function legacyMiddleware(): any;
 
-        function middleware(): any;
+  function loadMethods(...args: any[]): any;
 
-        function resource(name: any, ctrl: any, opts: any, ...args: any[]): any;
+  function middleware(): any;
 
-        namespace addResource {
-            const prototype: {
-            };
+  function resource(name: any, ctrl: any, opts: any, ...args: any[]): any;
 
-        }
+  namespace addResource {
+    const prototype: {
+    };
 
-        namespace addResources {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace addResources {
+    const prototype: {
+    };
 
-        namespace addRoute {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace addRoute {
+    const prototype: {
+    };
 
-        namespace addRoutes {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace addRoutes {
+    const prototype: {
+    };
 
-        namespace createResource {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace createResource {
+    const prototype: {
+    };
 
-        namespace createRoute {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace createRoute {
+    const prototype: {
+    };
 
-        namespace extend {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace extend {
+    const prototype: {
+    };
 
-        namespace getResource {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace getResource {
+    const prototype: {
+    };
 
-        namespace getResources {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace getResources {
+    const prototype: {
+    };
 
-        namespace getRoute {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace getRoute {
+    const prototype: {
+    };
 
-        namespace getRoutes {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace getRoutes {
+    const prototype: {
+    };
 
-        namespace groupResources {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace groupResources {
+    const prototype: {
+    };
 
-        namespace groupRoutes {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace groupRoutes {
+    const prototype: {
+    };
 
-        namespace legacyMiddleware {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace legacyMiddleware {
+    const prototype: {
+    };
 
-        namespace loadMethods {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace loadMethods {
+    const prototype: {
+    };
 
-        namespace middleware {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace middleware {
+    const prototype: {
+    };
 
-        namespace resource {
-            const prototype: {
-            };
+  }
 
-        }
+  namespace resource {
+    const prototype: {
+    };
 
-    }
+  }
+
+
 
 }
 
