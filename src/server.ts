@@ -1,6 +1,19 @@
 import * as Koa from "koa";
-import { api } from "./routers/user";
+import { api } from "./routers/router";
+import * as passport from "./config/passport";
+import * as session from "koa-session";
+import * as bodyParser from "koa-bodyparser";
+import * as mount from "koa-mount";
+
 const app = new Koa();
+app.proxy = true;
+app.use(session({ key: "SESSIONID" }, this));
+app.use(bodyParser());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(mount("/", api.getRoutes()));
+
+
 // x-response-time
 
 app.use(async (ctx, next) => {
@@ -18,6 +31,7 @@ app.use(async (ctx, next) => {
   const ms = Date.now() - start;
   console.log(`${ctx.method} ${ctx.url} - ${ms}`);
 });
+
 app.use(api.middleware());
 app.on("error", err => {
   console.error("server error", err);

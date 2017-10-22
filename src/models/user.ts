@@ -1,12 +1,12 @@
 export class User {
-  username: string;
+  name: string;
   password: string;
-  constructor(username: string, password: string) {
-    this.username = username;
+  constructor(name: string, password: string) {
+    this.name = name;
     this.password = password;
   }
   login(): boolean {
-    if (this.username == this.password) {
+    if (this.name == this.password) {
       return true;
     }
     return false;
