@@ -27,12 +27,16 @@
     "koa-mount": "^3.0.0",
     "koa-passport": "^4.0.1",
     "koa-rest-router": "^1.0.1",
+    "koa-router": "^7.2.1",
     "koa-session": "^5.5.0",
     "koa-session2": "^2.2.5",
+    "mongoose": "^4.12.4",
+    "mysql": "^2.15.0",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
     "passport-http-bearer": "^1.0.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.15.2"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^7.2.3",
@@ -40,11 +44,13 @@
     "@types/koa-bodyparser": "^3.0.25",
     "@types/koa-mount": "^2.0.18",
     "@types/koa-passport": "^2.0.4",
+    "@types/koa-router": "^7.0.23",
     "@types/koa-session": "^3.0.5",
     "@types/passport": "^0.3.4",
     "@types/passport-http": "^0.3.2",
     "@types/passport-http-bearer": "^1.0.30",
     "@types/passport-local": "^1.0.31",
+    "@types/sequelize": "^4.0.77",
     "nodemon": "^1.12.1",
     "tslint": "^5.7.0",
     "typescript": "^2.5.3"

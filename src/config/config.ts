@@ -13,7 +13,12 @@ export let Config = (function () {
         skipUserAuthentication: false
       },
       mysql: {
-
+          database: "addressbook", 
+          username: "root", 
+          password: "ab1234cd", 
+          host: "localhost", 
+          port: 3306 
+  
       }
     };
   }

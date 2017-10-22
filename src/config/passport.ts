@@ -13,10 +13,12 @@ passport.use(new Strategy(
 ));
 
 passport.serializeUser((user, done) => {
+  console.log("serializeUser:", user);
   done(undefined, user);
 });
 
 passport.deserializeUser((user, done) => {
+  console.log("deserializeUser:", user);
   return done(undefined, user);
 });
 
