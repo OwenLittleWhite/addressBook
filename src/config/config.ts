@@ -7,18 +7,15 @@ export let Config = (function () {
       mongoDB: {
         host: "127.0.0.1",
         port: "27017",
-        user: "owen",
-        password: "ab1234cd",
-        dbname: "addressbook",
-        skipUserAuthentication: false
+        dbname: "addressbook"
       },
       mysql: {
-          database: "addressbook", 
-          username: "root", 
-          password: "ab1234cd", 
-          host: "localhost", 
-          port: 3306 
-  
+        database: "addressbook",
+        username: "root",
+        password: "ab1234cd",
+        host: "localhost",
+        port: 3306
+
       }
     };
   }

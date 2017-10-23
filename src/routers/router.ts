@@ -1,33 +1,45 @@
 import * as Router from "koa-router";
 import * as passport from "../config/passport";
+import * as UserController from "../controllers/userController";
+import * as ContactController from "../controllers/contactController";
+import * as User from "../models/user";
+const api = new Router();
 
-export let api = new Router();
-api.all("/*", (ctx, next) => {
+// log
+api.all("/*", async (ctx, next) => {
   const start = Date.now();
   console.log(`${ctx.method} ${ctx.url} - ${start}`);
-  next();
+  await next();
 });
-api.get("/users", (ctx: any, next: any) => {
-  if (ctx.isAuthenticated()) {
-    ctx.body = ctx.state.user.id;
-  } else {
-    ctx.throw(401);
-    ctx.body("hehe");
-  }
-});
+// get all users
+api.get("/users", UserController.findAll);
+
+// create a user
+api.post("/users", UserController.create);
+
+// create a contact
+api.post("/users/:userId/contacts", ContactController.create);
+
+// get all contacts
+api.get("/users/:userId/contacts", ContactController.getAll);
+
+// logout
 api.get("/logout", (ctx, next) => {
   ctx.logout();
   ctx.body = "Logout";
 });
-api.post("/login", (ctx: any, next: any) => {
+// login
+api.post("/login", (ctx, next) => {
   return passport.authenticate("local", function (err: any, user: any, info: any, status: any) {
+    console.log(err, user, info, status);
     if (user) {
-      ctx.body = "YES";
-      console.log(user);
+      ctx.body = user;
       return ctx.login(user);
     } else {
-      ctx.throw(401);
+      ctx.status = 401;
       ctx.body = info;
     }
   })(ctx, next);
 });
+
+export default api;
