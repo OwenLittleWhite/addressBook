@@ -19,7 +19,7 @@ export let findAll = async (ctx: any, next: any) => {
   try {
     const query = ctx.query;
     const users = await User.findAll(query);
-    ctx.body = users;
+    ctx.body = JSON.stringify(users);
   } catch (err) {
     ctx.response.status = err.code;
     ctx.response.message = err.message;

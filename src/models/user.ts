@@ -83,6 +83,9 @@ const checkFindCondition = (options: any) => {
   if (options.name) {
     condition.name = options.name;
   }
+  if (options.password) {
+    condition.password = options.password;
+  }
   return condition;
 };
 

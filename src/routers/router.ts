@@ -18,10 +18,13 @@ api.get("/users", UserController.findAll);
 api.post("/users", UserController.create);
 
 // create a contact
-api.post("/users/:userId/contacts", ContactController.create);
+api.post("/users/:userId/contacts", ContactController.isAuth, ContactController.create);
 
 // get all contacts
-api.get("/users/:userId/contacts", ContactController.getAll);
+api.get("/users/:userId/contacts", ContactController.isAuth, ContactController.getAll);
+
+// remove a  contact
+api.delete("/users/:userId/contacts/:contactId", ContactController.isAuth, ContactController.remove);
 
 // logout
 api.get("/logout", (ctx, next) => {
@@ -31,7 +34,6 @@ api.get("/logout", (ctx, next) => {
 // login
 api.post("/login", (ctx, next) => {
   return passport.authenticate("local", function (err: any, user: any, info: any, status: any) {
-    console.log(err, user, info, status);
     if (user) {
       ctx.body = user;
       return ctx.login(user);

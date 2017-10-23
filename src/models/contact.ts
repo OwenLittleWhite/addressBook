@@ -7,11 +7,11 @@ export class ContactModel {
   address: string;
   owner: number;
   constructor(options: any) {
-    this._id = options._id || "";
+    this._id = options._id;
     this.name = options.name || "";
     this.phone = options.phone || "";
     this.address = options.address || "";
-    this.owner = options.owner || 0;
+    this.owner = options.owner;
   }
 }
 
@@ -32,7 +32,6 @@ const ContactSchema = new Schema({
   phone: { type: String },
   address: { type: String },
   owner: { type: Number },
-  active: { type: Boolean },
   _type: { type: String, default: "Contact" }
 });
 
@@ -51,6 +50,32 @@ export let findContactsByOwner = async (owner: number) => {
 
 export let createContact = (contact: ContactModel) => {
   const contactRepo = new ContactRepository(contact);
-  const created = contactRepo.save();
-  return init(created);
+  return new Promise((resolve, reject) => {
+    contactRepo.save(function (err, data) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(init(data));
+      }
+    });
+  });
+};
+export let remove = async (id: any) => {
+  const conditions = ContactRepository.find();
+  conditions.where("_id").equals(id);
+  const contacts = await conditions.exec();
+  if (contacts.length == 0) {
+    throw ({ code: 404, message: "not found" });
+  } else {
+    return new Promise((resolve, reject) => {
+      contacts[0].remove((err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      });
+    });
+
+  }
 };
