@@ -1,5 +1,7 @@
 import * as mongoose from "mongoose";
-const DB_URL = "mongodb://localhost:27017/addressbook";
+import { Config } from "../config/config";
+const mongoConfig = Config.getInstance().mongoDB;
+const DB_URL = `mongodb://${mongoConfig.host}:${mongoConfig.port}/${mongoConfig.dbname}`;
 mongoose.connect(DB_URL);
 
 mongoose.connection.on("connected ", () => {

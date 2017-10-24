@@ -65,7 +65,7 @@ export let createUser = async (userModel: UserModel) => {
 export let authenticate = async (user: UserModel) => {
   const users = await findUserByCondition(user);
   if (users.length == 0) {
-    throw ({ code: 404, message: "not found" });
+    throw ({ code: 401, message: "invalidate username or password" });
   } else {
     return users[0];
   }

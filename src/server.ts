@@ -6,6 +6,9 @@ import * as bodyParser from "koa-bodyparser";
 import * as mongoose from "mongoose";
 import * as Boom from "boom";
 import * as  mount from "koa-mount";
+import { Config } from "./config/config";
+const apiKey = Config.getInstance().apiKey;
+const listening_port = Config.getInstance().listening_port;
 const app = new Koa();
 
 // connect to mongodb
@@ -13,7 +16,7 @@ const app = new Koa();
 
 // auth
 app.proxy = true;
-app.keys = ["im a newer secret"];
+app.keys = [apiKey];
 app.use(session({ key: "SESSIONID", signed: true }));
 app.use(bodyParser());
 app.use(passport.initialize());
@@ -31,6 +34,6 @@ app.on("error", err => {
   console.error("server error", err);
 });
 // app listen
-app.listen(4444, () => {
-  console.log("Open http://localhost:4444 and try");
+export default app.listen(listening_port, () => {
+  console.log(`Open http://localhost:${listening_port} and try`);
 });

@@ -10,9 +10,6 @@ export let create = async (ctx: any, next: any) => {
     if (!body.name) {
       throw ({ code: 400, message: "bad request!" });
     }
-    // if (!ctx.isAuthenticated() || owner != ctx.state.user.id) {
-    //   throw ({ code: 401, message: "unauthorized" });
-    // }
     const newContact = new ContactModel(body);
     const result = await Contact.createContact(newContact);
     ctx.body = JSON.stringify(result);
@@ -27,9 +24,6 @@ export let create = async (ctx: any, next: any) => {
 export let getAll = async (ctx: any, next: any) => {
   try {
     const owner = ctx.params.userId;
-    // if (!ctx.isAuthenticated() || owner != ctx.state.user.id) {
-    //   throw ({ code: 401, message: "unauthorized" });
-    // }
     const result = await Contact.findContactsByOwner(owner);
     ctx.body = JSON.stringify(result);
   } catch (err) {

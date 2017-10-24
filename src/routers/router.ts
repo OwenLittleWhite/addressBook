@@ -11,6 +11,7 @@ api.all("/*", async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${start}`);
   await next();
 });
+
 // get all users
 api.get("/users", UserController.findAll);
 
