@@ -11,9 +11,10 @@
 ### How do I get set up? ###
 
 * Summary of set up  
-<code>npm install;
+```
+npm install;
 npm start
-</code>
+```
 * Configuration:  
 node > 7; mysql; mongodb;
 * Dependencies
@@ -27,13 +28,13 @@ npm run test
 
 #### create a user ####
 * user model  
-<code>
+```JSON
 {
  id:number,
  name:string,
  password:string
 }
-</code>
+```
 * api  
   POST /users;
 * body  
@@ -51,7 +52,7 @@ npm run test
 
 #### add a contact ####
 * contact model
-<code>
+```JSON
 {
  _id:ObjectId,
  name:string,
@@ -59,6 +60,7 @@ npm run test
  address:string,
  owner:number
 }
+```
 * api  
   POST /users/:userId/contacts;
 * body  
